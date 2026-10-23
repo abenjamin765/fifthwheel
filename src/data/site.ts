@@ -1,5 +1,5 @@
 // Canonical host is this GitHub Pages project site.
-export const siteUrl = "https://abenjamin765.github.io/fifthwheel";
+export const siteUrl = "https://www.aaronbenjamin.design/fifthwheel";
 
 // Staff console and waitlist API stay on the existing Vercel app.
 export const productionAppUrl = "https://www.5thwheel.app";
