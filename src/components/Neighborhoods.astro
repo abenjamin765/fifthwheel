@@ -1,0 +1,234 @@
+---
+// Neighborhood photos and venue thumbs. Venue images stay alt="" — the
+// restaurant name is already in the adjacent text.
+import { Picture } from "astro:assets";
+import inmanPark from "../assets/img/inman-park.jpg";
+import bartaco from "../assets/img/bartaco.jpg";
+import theAlden from "../assets/img/the-alden.jpg";
+import littleBear from "../assets/img/little-bear.jpg";
+import chamblee from "../assets/img/chamblee.jpg";
+import foundation from "../assets/img/foundation.jpg";
+import sorella from "../assets/img/sorella.jpg";
+import elSuperPan from "../assets/img/el-super-pan.jpg";
+import midtown from "../assets/img/midtown.jpg";
+import colonySquare from "../assets/img/colony-square.jpg";
+import polaris from "../assets/img/polaris.jpg";
+import theLawrence from "../assets/img/the-lawrence.jpg";
+
+const hoodSizes = "(max-width: 860px) min(420px, 100vw), 33vw";
+const spotSizes = "78px";
+---
+
+<section class="hoods">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The neighborhoods</p>
+      <h2>Good nights have somewhere to wander.</h2>
+    </div>
+
+    <div class="hood-grid">
+      <article class="hood">
+        <div class="hood-img">
+          <Picture
+            src={inmanPark}
+            alt="An evening street in Inman Park"
+            widths={[480, 768, 1152]}
+            sizes={hoodSizes}
+            formats={["avif", "webp"]}
+            quality={82}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="hood-content">
+          <h3>Inman Park</h3>
+          <ul class="spots">
+            <li>
+              <span class="spot-thumb">
+                <Picture
+                  src={bartaco}
+                  alt=""
+                  widths={[80, 160, 240]}
+                  sizes={spotSizes}
+                  formats={["avif", "webp"]}
+                  quality={80}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span class="spot-name">Bartaco</span>
+            </li>
+            <li>
+              <span class="spot-thumb">
+                <Picture
+                  src={theAlden}
+                  alt=""
+                  widths={[80, 160, 240]}
+                  sizes={spotSizes}
+                  formats={["avif", "webp"]}
+                  quality={80}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span class="spot-name">The Alden</span>
+            </li>
+            <li>
+              <span class="spot-thumb">
+                <Picture
+                  src={littleBear}
+                  alt=""
+                  widths={[80, 160, 240]}
+                  sizes={spotSizes}
+                  formats={["avif", "webp"]}
+                  quality={80}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span class="spot-name">Little Bear</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="hood">
+        <div class="hood-img">
+          <Picture
+            src={chamblee}
+            alt="An evening street in Chamblee"
+            widths={[480, 768, 1152]}
+            sizes={hoodSizes}
+            formats={["avif", "webp"]}
+            quality={82}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="hood-content">
+          <h3>Chamblee</h3>
+          <ul class="spots">
+            <li>
+              <span class="spot-thumb">
+                <Picture
+                  src={foundation}
+                  alt=""
+                  widths={[80, 160, 240]}
+                  sizes={spotSizes}
+                  formats={["avif", "webp"]}
+                  quality={80}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span class="spot-name">Foundation</span>
+            </li>
+            <li>
+              <span class="spot-thumb">
+                <Picture
+                  src={sorella}
+                  alt=""
+                  widths={[80, 160, 240]}
+                  sizes={spotSizes}
+                  formats={["avif", "webp"]}
+                  quality={80}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span class="spot-name">Sorella</span>
+            </li>
+            <li>
+              <span class="spot-thumb">
+                <Picture
+                  src={elSuperPan}
+                  alt=""
+                  widths={[80, 160, 240]}
+                  sizes={spotSizes}
+                  formats={["avif", "webp"]}
+                  quality={80}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span class="spot-name">El Super<br />Pan</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="hood">
+        <div class="hood-img">
+          <Picture
+            src={midtown}
+            alt="An evening rooftop in Midtown"
+            widths={[480, 768, 1152]}
+            sizes={hoodSizes}
+            formats={["avif", "webp"]}
+            quality={82}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="hood-content">
+          <h3>Midtown</h3>
+          <ul class="spots">
+            <li>
+              <span class="spot-thumb">
+                <Picture
+                  src={colonySquare}
+                  alt=""
+                  widths={[80, 160, 240]}
+                  sizes={spotSizes}
+                  formats={["avif", "webp"]}
+                  quality={80}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span class="spot-name">Colony<br />Square</span>
+            </li>
+            <li>
+              <span class="spot-thumb">
+                <Picture
+                  src={polaris}
+                  alt=""
+                  widths={[80, 160, 240]}
+                  sizes={spotSizes}
+                  formats={["avif", "webp"]}
+                  quality={80}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span class="spot-name">Polaris</span>
+            </li>
+            <li>
+              <span class="spot-thumb">
+                <Picture
+                  src={theLawrence}
+                  alt=""
+                  widths={[80, 160, 240]}
+                  sizes={spotSizes}
+                  formats={["avif", "webp"]}
+                  quality={80}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span class="spot-name">The<br />Lawrence</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <p class="hood-soon">
+      <span>Also coming soon</span>
+      <span class="divider" aria-hidden="true"></span>
+      <span>Buckhead</span>
+      <span>Roswell</span>
+      <span>Alpharetta</span>
+    </p>
+  </div>
+</section>

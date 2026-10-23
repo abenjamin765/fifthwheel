@@ -1,0 +1,22 @@
+---
+// Legal CSS is imported here (not in Base) so the landing page never downloads it.
+import "../styles/legal.css";
+import Base from "../layouts/Base.astro";
+import LegalHeader from "../components/LegalHeader.astro";
+import LegalFooter from "../components/LegalFooter.astro";
+import TermsContent from "../components/TermsContent.astro";
+import { termsMeta } from "../data/site";
+---
+
+<Base
+  title={termsMeta.title}
+  description={termsMeta.description}
+  path={termsMeta.path}
+  theme="legal"
+>
+  <LegalHeader />
+  <div class="wrap">
+    <TermsContent />
+  </div>
+  <LegalFooter />
+</Base>

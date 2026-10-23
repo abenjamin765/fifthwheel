@@ -1,0 +1,30 @@
+---
+import { productionAppUrl, withBase } from "../data/site";
+---
+<!-- Waitlist, legal, staff console, and contact. -->
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="mark-lockup">
+        <img
+          src={withBase("fifth-wheel-lockup-italic-horizontal-on-dark.svg")}
+          alt="Fifth Wheel"
+          width="202"
+          height="32"
+        />
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#waitlist">Join the waitlist</a>
+        <a href={withBase("terms/")}>Terms</a>
+        <a href={withBase("privacy/")}>Privacy</a>
+        <a href={`${productionAppUrl}/admin/login`}>Staff</a>
+        <a href="mailto:hello@5thwheel.app">hello@5thwheel.app</a>
+      </nav>
+    </div>
+    <p class="foot-fine">
+      Fifth Wheel Supper Club, LLC · Atlanta, Georgia · Guests must be 21 or
+      older. Fifth Wheel arranges the table; restaurants and bars serve their
+      own food and drink.
+    </p>
+  </div>
+</footer>

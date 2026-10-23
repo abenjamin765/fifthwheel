@@ -1,0 +1,60 @@
+---
+// Landing CSS is imported here (not in Base) so legal pages never download it.
+import "../styles/landing.css";
+import Base from "../layouts/Base.astro";
+import Masthead from "../components/Masthead.astro";
+import Hero from "../components/Hero.astro";
+import TheNight from "../components/TheNight.astro";
+import Neighborhoods from "../components/Neighborhoods.astro";
+import WhyFive from "../components/WhyFive.astro";
+import Facts from "../components/Facts.astro";
+import Waitlist from "../components/Waitlist.astro";
+import Faq from "../components/Faq.astro";
+import Footer from "../components/Footer.astro";
+import { faqs } from "../data/faq";
+import { landingMeta } from "../data/site";
+
+// FAQPage JSON-LD uses the same answers as the visible details; strip any HTML first.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answers
+        .map((answer) => answer.replace(/<[^>]+>/g, ""))
+        .join(" "),
+    },
+  })),
+};
+---
+
+<Base
+  title={landingMeta.title}
+  description={landingMeta.description}
+  ogDescription={landingMeta.ogDescription}
+  path={landingMeta.path}
+  theme="landing"
+  jsonLd={[faqSchema]}
+>
+  <Masthead />
+  <main id="main">
+    <!-- HERO -->
+    <Hero />
+    <!-- THE WALK -->
+    <TheNight />
+    <!-- THE NEIGHBORHOODS -->
+    <Neighborhoods />
+    <!-- WHY FIVE -->
+    <WhyFive />
+    <!-- PLAIN FACTS -->
+    <Facts />
+    <!-- THE FORM -->
+    <Waitlist />
+    <!-- QUESTIONS -->
+    <Faq />
+  </main>
+  <Footer />
+</Base>

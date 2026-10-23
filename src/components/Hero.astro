@@ -1,0 +1,266 @@
+<!-- Hero: room line drawing, capture field, five-seat figure. -->
+<div class="hero-band">
+  <div class="room" aria-hidden="true">
+    <svg
+      viewBox="0 0 1600 640"
+      xmlns="http://www.w3.org/2000/svg"
+      focusable="false"
+    >
+      <defs>
+        <g id="fw-glass">
+          <path d="M-8 -24 c0 10 16 10 16 0"></path>
+          <path d="M0 -16 V-4"></path>
+          <path d="M-6 -4 H6"></path>
+        </g>
+        <g id="fw-pendant">
+          <path d="M0 0 V96"></path>
+          <path d="M-30 96 H30 L18 132 H-18 Z"></path>
+          <circle class="lamp-glow" cx="0" cy="142" r="6" stroke="none"></circle>
+        </g>
+      </defs>
+
+      <g
+        fill="none"
+        stroke="var(--brass)"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <!-- back wall: three arched windows -->
+        <path d="M180 400 V250 a110 110 0 0 1 220 0 V400"></path>
+        <path d="M290 400 V140 M180 318 H400"></path>
+
+        <path d="M690 400 V250 a110 110 0 0 1 220 0 V400"></path>
+        <path d="M800 400 V140 M690 318 H910"></path>
+
+        <path d="M1200 400 V250 a110 110 0 0 1 220 0 V400"></path>
+        <path d="M1310 400 V140 M1200 318 H1420"></path>
+
+        <!-- wall rail -->
+        <path d="M40 410 H1560" opacity="0.55"></path>
+
+        <!-- banquette -->
+        <path
+          d="M120 500 V450 a20 20 0 0 1 20 -20 H1460 a20 20 0 0 1 20 20 V500"
+        ></path>
+        <path
+          d="M266 434 V498 M412 434 V498 M558 434 V498 M704 434 V498 M850 434 V498 M996 434 V498 M1142 434 V498 M1288 434 V498"
+          opacity="0.5"></path>
+
+        <!-- floor -->
+        <path d="M0 522 H1600" opacity="0.4"></path>
+
+        <!-- pendants: five, hung at uneven lengths -->
+        <g transform="translate(260,0)"><use href="#fw-pendant"></use></g>
+        <g transform="translate(530,26)"><use href="#fw-pendant"></use></g>
+        <g transform="translate(800,-8)"><use href="#fw-pendant"></use></g>
+        <g transform="translate(1070,32)"><use href="#fw-pendant"></use></g>
+        <g transform="translate(1340,12)"><use href="#fw-pendant"></use></g>
+
+        <!-- side two-tops -->
+        <g opacity="0.7">
+          <ellipse cx="250" cy="556" rx="112" ry="24"></ellipse>
+          <path d="M198 572 V618 M302 572 V618"></path>
+          <path d="M120 640 V604 a34 34 0 0 1 68 0 V640"></path>
+          <g transform="translate(250,548)"><use href="#fw-glass"></use></g>
+        </g>
+        <g opacity="0.7">
+          <ellipse cx="1360" cy="566" rx="118" ry="25"></ellipse>
+          <path d="M1306 583 V632 M1414 583 V632"></path>
+          <path d="M1428 640 V600 a35 35 0 0 1 70 0 V640"></path>
+          <g transform="translate(1360,558)"><use href="#fw-glass"></use></g>
+        </g>
+
+        <!-- the five-top, set and waiting -->
+        <path d="M700 522 a34 32 0 0 1 68 0"></path>
+        <path d="M836 522 a34 32 0 0 1 68 0"></path>
+        <ellipse cx="800" cy="562" rx="178" ry="36"></ellipse>
+        <path d="M726 592 V640 M874 592 V640"></path>
+        <path d="M636 640 V602 a38 38 0 0 1 76 0 V640"></path>
+        <path d="M762 640 V596 a38 38 0 0 1 76 0 V640"></path>
+        <path d="M888 640 V602 a38 38 0 0 1 76 0 V640"></path>
+
+        <g transform="translate(700,556)"><use href="#fw-glass"></use></g>
+        <g transform="translate(752,566)"><use href="#fw-glass"></use></g>
+        <g transform="translate(848,566)"><use href="#fw-glass"></use></g>
+        <g transform="translate(900,556)"><use href="#fw-glass"></use></g>
+        <g transform="translate(800,540)"><use href="#fw-glass"></use></g>
+
+        <!-- candle at the centre of the five-top -->
+        <path d="M792 552 V534 H808 V552" opacity="0.8"></path>
+        <circle class="lamp-glow" cx="800" cy="527" r="5" stroke="none"></circle>
+      </g>
+    </svg>
+  </div>
+
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">A supper club for five strangers</p>
+        <h1>One table.<br />Five people.<br /></h1>
+        <p class="lede">
+          Five single strangers, one neighborhood, three stops on foot. Drinks,
+          then dinner, a private vote, and maybe dessert with someone you
+          picked. First tables open on November. Register today for founder
+          access.
+        </p>
+
+        <div class="capture">
+          <div class="capture-row">
+            <label for="hero-email" class="hp">Email address</label>
+            <input
+              id="hero-email"
+              type="email"
+              placeholder="you@email.com"
+              autocomplete="email"
+            />
+            <button class="btn" type="button" data-jump>Request a seat</button>
+          </div>
+          <p class="fine">
+            Atlanta first. We seat a table when the five people are right, not
+            when the calendar says so.
+          </p>
+        </div>
+      </div>
+
+      <figure class="table-figure" style="margin: 0">
+        <div class="fw-glow" aria-hidden="true"></div>
+        <svg
+          viewBox="0 0 260 240"
+          role="img"
+          aria-label="Five seats around a table. Conversations move around the circle; one private connection is revealed."
+        >
+          <circle class="fw-orbit" cx="130" cy="122" r="86"></circle>
+
+          <!-- Conversation layer — under the seats so lines emerge from behind them -->
+          <path
+            class="fw-convo"
+            d="M 210 104 A 95 95 0 0 0 179 198"
+            pathLength="1"
+            stroke="#C79A4B"
+            style="animation-delay: 1.6s"></path>
+          <path
+            class="fw-convo"
+            d="M 81 198 A 95 95 0 0 0 50 104"
+            pathLength="1"
+            stroke="#5C89C9"
+            style="animation-delay: 3.2s"></path>
+          <path
+            class="fw-convo"
+            d="M 50 104 A 95 95 0 0 0 210 104"
+            pathLength="1"
+            stroke="#6B8F71"
+            style="animation-delay: 5s"></path>
+          <path
+            class="fw-convo"
+            d="M 179 198 A 95 95 0 0 0 50 104"
+            pathLength="1"
+            stroke="#7C3547"
+            style="animation-delay: 6.8s"></path>
+          <path
+            class="fw-convo"
+            d="M 130 46 A 95 95 0 0 0 179 198"
+            pathLength="1"
+            stroke="#9B7FD4"
+            style="animation-delay: 8.6s"></path>
+          <path
+            class="fw-convo"
+            d="M 81 198 A 95 95 0 0 1 210 104"
+            pathLength="1"
+            stroke="#C79A4B"
+            style="animation-delay: 10.4s"></path>
+          <path
+            class="fw-convo"
+            d="M 130 46 A 95 95 0 0 1 50 104"
+            pathLength="1"
+            stroke="#5C89C9"
+            style="animation-delay: 12.2s"></path>
+
+          <g class="fw-seat-in" style="animation-delay: 1.15s">
+            <circle
+              cx="130"
+              cy="46"
+              r="24"
+              fill="rgba(199, 154, 75, 0.16)"
+              stroke="#C79A4B"
+              stroke-width="2"></circle>
+            <text
+              x="130"
+              y="51.5"
+              text-anchor="middle"
+              font-size="15"
+              font-family="var(--display)"
+              fill="#C79A4B">✦</text>
+          </g>
+          <g class="fw-seat-in" style="animation-delay: 0.43s">
+            <circle
+              cx="210"
+              cy="104"
+              r="24"
+              fill="#2B2216"
+              stroke="#3A2F20"
+              stroke-width="1.5"></circle>
+            <text
+              x="210"
+              y="109.5"
+              text-anchor="middle"
+              font-size="15"
+              font-family="var(--display)"
+              fill="#A6947C">✦</text>
+          </g>
+          <g class="fw-seat-in" style="animation-delay: 0.61s">
+            <circle
+              cx="179"
+              cy="198"
+              r="24"
+              fill="#2B2216"
+              stroke="#3A2F20"
+              stroke-width="1.5"></circle>
+            <text
+              x="179"
+              y="203.5"
+              text-anchor="middle"
+              font-size="15"
+              font-family="var(--display)"
+              fill="#A6947C">✦</text>
+          </g>
+          <g class="fw-seat-in" style="animation-delay: 0.79s">
+            <circle
+              cx="81"
+              cy="198"
+              r="24"
+              fill="#2B2216"
+              stroke="#3A2F20"
+              stroke-width="1.5"></circle>
+            <text
+              x="81"
+              y="203.5"
+              text-anchor="middle"
+              font-size="15"
+              font-family="var(--display)"
+              fill="#A6947C">✦</text>
+          </g>
+          <g class="fw-seat-in" style="animation-delay: 0.97s">
+            <circle
+              cx="50"
+              cy="104"
+              r="24"
+              fill="#2B2216"
+              stroke="#3A2F20"
+              stroke-width="1.5"></circle>
+            <text
+              x="50"
+              y="109.5"
+              text-anchor="middle"
+              font-size="15"
+              font-family="var(--display)"
+              fill="#A6947C">✦</text>
+          </g>
+        </svg>
+        <figcaption class="figure-caption">
+          Only mutual picks are ever revealed
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>

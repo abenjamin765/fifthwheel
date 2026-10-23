@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abenjamin765.github.io/fifthwheel/sitemap.xml

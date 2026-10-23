@@ -1,0 +1,136 @@
+---
+// Tokens and fonts are shared. Page-specific CSS (landing vs legal) is imported
+// by each page so the two themes stay in separate stylesheets.
+import "../styles/tokens.css";
+import "../styles/fonts.css";
+import { absoluteUrl, organization, siteUrl, withBase } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  ogDescription?: string;
+  theme: "landing" | "legal";
+  jsonLd?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  path,
+  ogDescription = description,
+  theme,
+  jsonLd = [],
+} = Astro.props;
+
+const canonical = absoluteUrl(path);
+const ogImage = absoluteUrl("/og.png");
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: organization.name,
+  legalName: organization.legalName,
+  url: siteUrl,
+  email: organization.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: organization.city,
+    addressRegion: organization.region,
+    addressCountry: organization.country,
+  },
+  logo: absoluteUrl("/fifth-wheel-app-icon.svg"),
+};
+const schemas = [orgSchema, ...jsonLd];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Fifth Wheel" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="theme-color" content="#161009" />
+    <link rel="icon" href={withBase("fifth-wheel-app-icon.svg")} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={withBase("fifth-wheel-app-icon.svg")} />
+    <link
+      rel="preload"
+      href={withBase("fonts/fraunces-roman-latin.woff2")}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={withBase("fonts/inter-latin.woff2")}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    {
+      schemas.map((schema) => (
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      ))
+    }
+  </head>
+  <body data-theme={theme}>
+    <a class="skip" href="#main">Skip to content</a>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1554369373159853&ev=PageView&noscript=1"
+        alt=""
+      />
+    </noscript>
+    <slot />
+    <!-- Pixel waits for load so it is not on the critical path. -->
+    <script is:inline>
+      window.addEventListener("load", function () {
+        !(function (f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function () {
+            n.callMethod
+              ? n.callMethod.apply(n, arguments)
+              : n.queue.push(arguments);
+          };
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = "2.0";
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        })(
+          window,
+          document,
+          "script",
+          "https://connect.facebook.net/en_US/fbevents.js",
+        );
+        fbq("init", "1554369373159853");
+        fbq("track", "PageView");
+      });
+    </script>
+    <!-- 404s in local preview; present on the Vercel production host. -->
+    <script defer src="/_vercel/insights/script.js"></script>
+  </body>
+</html>

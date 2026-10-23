@@ -1,0 +1,234 @@
+<!-- Atlanta waitlist. Behavior and payload: src/scripts/waitlist.ts -->
+<section class="cloth" id="waitlist">
+  <div class="wrap">
+    <div id="formPanel">
+      <div class="section-head">
+        <p class="eyebrow">Atlanta waitlist</p>
+        <h2>Tell us who you are and what you're looking for</h2>
+        <p>
+          Our first Atlanta tables are seating on November. Tell us a little
+          about yourself and what you’re looking for. This form is just the
+          beginning. A real person thoughtfully curates every table, there’s
+          more to the process than what we ask here.
+        </p>
+      </div>
+
+      <form class="form-grid" id="waitlistForm" novalidate>
+        <div class="field">
+          <label for="f-name">First name</label>
+          <input
+            id="f-name"
+            name="first_name"
+            type="text"
+            autocomplete="given-name"
+            required
+          />
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input
+            id="f-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="f-age">Age</label>
+          <select id="f-age" name="age_range" required>
+            <option value="">Select</option>
+            <option>21–26</option>
+            <option>27–32</option>
+            <option>33–38</option>
+            <option>39–45</option>
+            <option>46+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-hood">Where you'd walk to</label>
+          <select id="f-hood" name="neighborhood" required>
+            <option value="">Select</option>
+            <option>Old Fourth Ward</option>
+            <option>Inman Park</option>
+            <option>Virginia-Highland</option>
+            <option>Decatur</option>
+            <option>West Midtown</option>
+            <option>Midtown</option>
+            <option>Buckhead</option>
+            <option>Grant Park / East Atlanta</option>
+            <option>Anywhere in town</option>
+          </select>
+        </div>
+
+        <fieldset class="field full">
+          <legend>You are</legend>
+          <div class="choices">
+            <label class="choice">
+              <input type="radio" name="identity" value="Woman" required />
+              <span>A woman</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="identity" value="Man" />
+              <span>A man</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="identity" value="Non-binary" />
+              <span>Non-binary</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field full" aria-describedby="open-to-hint">
+          <legend>Seat you with</legend>
+          <div class="choices">
+            <label class="choice">
+              <input type="checkbox" name="open_to" value="Women" />
+              <span>Women</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="open_to" value="Men" />
+              <span>Men</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="open_to" value="Non-binary people" />
+              <span>Non-binary people</span>
+            </label>
+          </div>
+          <p class="hint" id="open-to-hint">
+            Pick every option you're open to. This only shapes who we seat you
+            with — it's never shown to the table.
+          </p>
+        </fieldset>
+
+        <fieldset class="field full">
+          <legend>Nights that usually work</legend>
+          <div class="choices">
+            <label class="choice">
+              <input type="checkbox" name="nights" value="Monday" />
+              <span>Monday</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="nights" value="Tuesday" />
+              <span>Tuesday</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="nights" value="Wednesday" />
+              <span>Wednesday</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="nights" value="Thursday" />
+              <span>Thursday</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="nights" value="Friday" />
+              <span>Friday</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="nights" value="Saturday" />
+              <span>Saturday</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="nights" value="Sunday" />
+              <span>Sunday</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field full" aria-describedby="launch-hint">
+          <legend>Our first tables are on November</legend>
+          <div class="choices">
+            <label class="choice">
+              <input
+                type="radio"
+                name="launch_interest"
+                value="Yes, these days work"
+              />
+              <span>Yes, these days work</span>
+            </label>
+            <label class="choice">
+              <input
+                type="radio"
+                name="launch_interest"
+                value="Maybe, depends on time and location"
+              />
+              <span>Maybe — depends on time and place</span>
+            </label>
+            <label class="choice">
+              <input
+                type="radio"
+                name="launch_interest"
+                value="Not those dates, but keep me posted"
+              />
+              <span>Not those dates, but keep me posted</span>
+            </label>
+          </div>
+          <p class="hint" id="launch-hint">
+            Knowing this helps us decide which tables to fill first.
+          </p>
+        </fieldset>
+
+        <div class="field full">
+          <label for="f-heard">
+            How you heard about us
+            <span style="text-transform: none; letter-spacing: 0">(optional)</span>
+          </label>
+          <input
+            id="f-heard"
+            name="referral"
+            type="text"
+            placeholder="A friend, Instagram, a restaurant…"
+          />
+        </div>
+
+        <!-- Honeypot: bots fill this, humans never see it. Posted as `_gotcha`. -->
+        <input
+          class="hp"
+          type="text"
+          name="_gotcha"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
+
+        <p
+          class="form-status"
+          id="formStatus"
+          role="alert"
+          aria-live="assertive"
+        >
+        </p>
+
+        <div class="submit-row">
+          <button class="btn" type="submit" id="submitBtn">
+            Join the waitlist
+          </button>
+          <p class="submit-note">
+            We email about tables in your neighborhood. Nothing else, and you
+            can stop it in one click.
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Shown after a successful POST. Hidden until then via `.thanks { display: none }`. -->
+    <div class="thanks" id="thanksPanel">
+      <p class="eyebrow">You're on the list</p>
+      <h2>Check your inbox in a moment</h2>
+      <p>
+        A coordinator will reach out when there's a table that fits your nights
+        and your neighborhood. Tables are built one at a time, so it may be a
+        couple of weeks.
+      </p>
+      <p>
+        If your availability changes, just reply to that email — a person reads
+        it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import "../scripts/waitlist";
+</script>

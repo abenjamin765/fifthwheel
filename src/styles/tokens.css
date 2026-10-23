@@ -1,0 +1,66 @@
+/* ── Fifth Wheel brand kit ──────────────────────────────────────
+   Palette, the Fraunces/Inter pairing, and the pentagon are the kit.
+   Nothing below this block sets a colour or a face of its own.
+   Values sampled from the app welcome screen. Ground is warm
+   near-black, not oxblood. Slate is the only cool colour in the
+   kit and is reserved for the mutual-match line. */
+:root {
+  /* ground & surfaces */
+  --ground: #161009;
+  --ground-lift: #1f1710;
+  --surface: #2b2216; /* nodes, raised shapes on dark */
+  --glow: #382916; /* ambient amber behind the mark */
+
+  /* brass */
+  --brass: #c79a4b;
+  --brass-soft: #dcb670;
+  --brass-35: rgba(199, 154, 75, 0.35);
+  --brass-28: rgba(199, 154, 75, 0.28);
+  --brass-12: rgba(199, 154, 75, 0.12);
+  --rule-brass: rgba(199, 154, 75, 0.22);
+  --rule-hair: rgba(199, 154, 75, 0.14);
+  --rule: 1px solid rgba(199, 154, 75, 0.22);
+
+  /* linen & taupe */
+  --linen: #f3e9d8;
+  --linen-dim: #e6dac5;
+  --linen-80: #c4b49a; /* secondary text is taupe, not dimmed linen */
+  --linen-62: rgba(196, 180, 154, 0.78);
+  --linen-45: rgba(196, 180, 154, 0.58);
+  --linen-30: rgba(196, 180, 154, 0.38);
+  --linen-10: rgba(243, 233, 216, 0.1);
+  --linen-06: rgba(243, 233, 216, 0.06);
+
+  /* accent — the connection, and nothing else */
+  --slate: #4c648a;
+
+  /* on the linen half */
+  --paper: #fbf6ec;
+  --ink: #161009;
+  --ink-body: rgba(22, 16, 9, 0.78);
+  --ink-secondary: rgba(22, 16, 9, 0.62);
+  --ink-label: rgba(22, 16, 9, 0.55);
+  --ink-rule: rgba(22, 16, 9, 0.2);
+  --ink-hair: rgba(22, 16, 9, 0.14);
+  --alert: #8e2438; /* form errors only */
+
+  /* type — Fraunces display, Inter body */
+  --display: "Fraunces", Georgia, serif;
+  --body:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif;
+  --fv-hero: "SOFT" 30, "WONK" 1, "opsz" 120;
+  --fv-hero-em: "SOFT" 60, "WONK" 1, "opsz" 120;
+  --fv-head: "SOFT" 30, "WONK" 1, "opsz" 90;
+  --fv-sub: "SOFT" 20, "WONK" 1, "opsz" 60;
+  --fv-mark: "SOFT" 20, "WONK" 1, "opsz" 40;
+  --fv-pull: "SOFT" 50, "WONK" 1, "opsz" 100;
+  --fv-num: "WONK" 1, "opsz" 60;
+  --track-eyebrow: 0.2em;
+  --track-label: 0.14em;
+  --track-caps: 0.16em;
+
+  --radius-btn: 14px;
+  --radius-field: 10px;
+  --gutter: clamp(20px, 5vw, 64px);
+}

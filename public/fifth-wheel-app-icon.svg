@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Fifth Wheel">
+  <title>Fifth Wheel</title>
+  <rect width="1024" height="1024" rx="224" fill="#161009"/>
+  <g transform="translate(112,112) scale(0.740741)">
+    <polygon points="540,222 843.42,428.06 726.85,776.94 353.15,776.94 236.58,428.06" fill="none" stroke="#C79A4B" stroke-width="46" stroke-linejoin="round"/>
+    <circle cx="540" cy="222" r="86" fill="#F3E9D8"/>
+    <circle cx="843.42" cy="428.06" r="70" fill="#C79A4B"/>
+    <circle cx="726.85" cy="776.94" r="70" fill="#C79A4B"/>
+    <circle cx="353.15" cy="776.94" r="70" fill="#C79A4B"/>
+    <circle cx="236.58" cy="428.06" r="70" fill="#C79A4B"/>
+  </g>
+</svg>

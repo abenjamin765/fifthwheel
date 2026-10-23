@@ -1,0 +1,26 @@
+---
+// Accordion copy lives in data/faq.ts so JSON-LD can reuse it.
+import { faqs } from "../data/faq";
+---
+
+<section class="qa">
+  <div class="wrap">
+    <p class="eyebrow">Questions</p>
+    <h2>The ones everyone asks</h2>
+
+    {
+      faqs.map((item) => (
+        <details>
+          <summary>{item.question}</summary>
+          {item.answers.map((answer) =>
+            answer.includes("<a ") ? (
+              <p set:html={answer} />
+            ) : (
+              <p>{answer}</p>
+            ),
+          )}
+        </details>
+      ))
+    }
+  </div>
+</section>
