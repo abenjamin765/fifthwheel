@@ -10,10 +10,10 @@ import chamblee from "../assets/img/chamblee.jpg";
 import foundation from "../assets/img/foundation.jpg";
 import sorella from "../assets/img/sorella.jpg";
 import elSuperPan from "../assets/img/el-super-pan.jpg";
-import midtown from "../assets/img/midtown.jpg";
-import colonySquare from "../assets/img/colony-square.jpg";
-import polaris from "../assets/img/polaris.jpg";
-import theLawrence from "../assets/img/the-lawrence.jpg";
+import virginiaHighlands from "../assets/img/virginia-highlands.jpg";
+import highlandTap from "../assets/img/highland-tap.jpg";
+import murphys from "../assets/img/murphys.jpg";
+import truva from "../assets/img/truva.jpg";
 
 const hoodSizes = "(max-width: 860px) min(420px, 100vw), 33vw";
 const spotSizes = "78px";
@@ -160,8 +160,8 @@ const spotSizes = "78px";
       <article class="hood">
         <div class="hood-img">
           <Picture
-            src={midtown}
-            alt="An evening rooftop in Midtown"
+            src={virginiaHighlands}
+            alt="An evening street in Virginia Highlands"
             widths={[480, 768, 1152]}
             sizes={hoodSizes}
             formats={["avif", "webp"]}
@@ -171,12 +171,12 @@ const spotSizes = "78px";
           />
         </div>
         <div class="hood-content">
-          <h3>Midtown</h3>
+          <h3>Virginia Highlands</h3>
           <ul class="spots">
             <li>
               <span class="spot-thumb">
                 <Picture
-                  src={colonySquare}
+                  src={highlandTap}
                   alt=""
                   widths={[80, 160, 240]}
                   sizes={spotSizes}
@@ -186,12 +186,12 @@ const spotSizes = "78px";
                   decoding="async"
                 />
               </span>
-              <span class="spot-name">Colony<br />Square</span>
+              <span class="spot-name">Highland Tap</span>
             </li>
             <li>
               <span class="spot-thumb">
                 <Picture
-                  src={polaris}
+                  src={murphys}
                   alt=""
                   widths={[80, 160, 240]}
                   sizes={spotSizes}
@@ -201,12 +201,12 @@ const spotSizes = "78px";
                   decoding="async"
                 />
               </span>
-              <span class="spot-name">Polaris</span>
+              <span class="spot-name">Murphy’s</span>
             </li>
             <li>
               <span class="spot-thumb">
                 <Picture
-                  src={theLawrence}
+                  src={truva}
                   alt=""
                   widths={[80, 160, 240]}
                   sizes={spotSizes}
@@ -216,7 +216,7 @@ const spotSizes = "78px";
                   decoding="async"
                 />
               </span>
-              <span class="spot-name">The<br />Lawrence</span>
+              <span class="spot-name">Truva</span>
             </li>
           </ul>
         </div>
@@ -226,9 +226,14 @@ const spotSizes = "78px";
     <p class="hood-soon">
       <span>Also coming soon</span>
       <span class="divider" aria-hidden="true"></span>
+      <span>West Midtown</span>
       <span>Buckhead</span>
-      <span>Roswell</span>
+      <span>Decatur</span>
       <span>Alpharetta</span>
     </p>
   </div>
 </section>
+
+<script>
+  import "../scripts/hood-reveal";
+</script>

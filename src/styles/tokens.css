@@ -63,4 +63,7 @@
   --radius-btn: 14px;
   --radius-field: 10px;
   --gutter: clamp(20px, 5vw, 64px);
+
+  /* Motion — strong ease-out for UI/marketing entrances. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }

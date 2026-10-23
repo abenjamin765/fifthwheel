@@ -9,6 +9,29 @@ const formPanel = document.getElementById("formPanel");
 const thanksPanel = document.getElementById("thanksPanel");
 const heroEmail = document.getElementById("hero-email");
 const jump = document.querySelector("[data-jump]");
+const lookingFor = document.getElementById("f-looking");
+
+const lookingForStops = ["Casual", "Open", "Relationship"] as const;
+
+function lookingForLabel(value: string): (typeof lookingForStops)[number] {
+  const index = Number(value);
+  return lookingForStops[index] ?? "Open";
+}
+
+function syncLookingFor(input: HTMLInputElement): void {
+  const label = lookingForLabel(input.value);
+  input.setAttribute("aria-valuenow", input.value);
+  input.setAttribute("aria-valuetext", label);
+
+  const stops = input.parentElement?.querySelectorAll("[data-stop]");
+  if (!stops) return;
+  stops.forEach((stop) => {
+    stop.classList.toggle(
+      "is-current",
+      stop.getAttribute("data-stop") === input.value,
+    );
+  });
+}
 
 if (
   !(form instanceof HTMLFormElement) ||
@@ -17,14 +40,54 @@ if (
   !(formPanel instanceof HTMLElement) ||
   !(thanksPanel instanceof HTMLElement) ||
   !(heroEmail instanceof HTMLInputElement) ||
-  !(jump instanceof HTMLElement)
+  !(jump instanceof HTMLElement) ||
+  !(lookingFor instanceof HTMLInputElement)
 ) {
   throw new Error("Waitlist form markup is incomplete.");
 }
 
+syncLookingFor(lookingFor);
+lookingFor.addEventListener("input", () => {
+  syncLookingFor(lookingFor);
+});
+
 function setStatus(el: HTMLElement, msg: string, kind?: "err" | "ok"): void {
   el.textContent = msg;
   el.className = "form-status" + (kind ? ` ${kind}` : "");
+}
+
+function prefersReducedMotion(): boolean {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function revealThanks(): void {
+  const scrollBehavior: ScrollBehavior = prefersReducedMotion()
+    ? "auto"
+    : "smooth";
+  const show = (): void => {
+    formPanel.hidden = true;
+    thanksPanel.hidden = false;
+    thanksPanel.scrollIntoView({
+      behavior: scrollBehavior,
+      block: "center",
+    });
+  };
+
+  if (prefersReducedMotion()) {
+    show();
+    return;
+  }
+
+  let finished = false;
+  const finish = (): void => {
+    if (finished) return;
+    finished = true;
+    show();
+  };
+
+  formPanel.classList.add("is-leaving");
+  formPanel.addEventListener("transitionend", finish, { once: true });
+  window.setTimeout(finish, 320);
 }
 
 // Hero field is a hand-off, not a second form: copy the value into the real
@@ -80,10 +143,7 @@ form.addEventListener("submit", (event) => {
   }
   if (!data.get("age_range")) {
     setStatus(statusEl, "Select your age range.", "err");
-    return;
-  }
-  if (!data.get("neighborhood")) {
-    setStatus(statusEl, "Pick a neighborhood you’d walk to.", "err");
+    document.getElementById("f-age")?.focus();
     return;
   }
   if (!data.get("identity")) {
@@ -102,6 +162,24 @@ form.addEventListener("submit", (event) => {
     );
     return;
   }
+  if (!data.get("age_open_to")) {
+    setStatus(statusEl, "Tell us what ages you’re open to meeting.", "err");
+    document.getElementById("f-age-open")?.focus();
+    return;
+  }
+  if (!data.get("surprise_game")) {
+    setStatus(
+      statusEl,
+      "Let us know if you’d like a surprise game at the table.",
+      "err",
+    );
+    return;
+  }
+  if (!data.get("neighborhood")) {
+    setStatus(statusEl, "Pick a neighborhood you’d walk to.", "err");
+    document.getElementById("f-hood")?.focus();
+    return;
+  }
 
   // Collapse multi-selects so they land in Airtable as readable text.
   // Empty nights stay "Not specified". `_gotcha` is the honeypot.
@@ -117,7 +195,9 @@ form.addEventListener("submit", (event) => {
     source: "landing-page",
     submitted_at: new Date().toISOString(),
     _gotcha: data.get("_gotcha") || "",
-    launch_interest: data.get("launch_interest") || "",
+    age_open_to: data.get("age_open_to"),
+    looking_for: lookingForLabel(String(data.get("looking_for") ?? "1")),
+    surprise_game: data.get("surprise_game"),
   };
 
   btn.disabled = true;
@@ -134,12 +214,7 @@ form.addEventListener("submit", (event) => {
   })
     .then((res) => {
       if (!res.ok) throw new Error("bad response");
-      formPanel.style.display = "none";
-      thanksPanel.style.display = "block";
-      thanksPanel.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
+      revealThanks();
     })
     .catch(() => {
       btn.disabled = false;
